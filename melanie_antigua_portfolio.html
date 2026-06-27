@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melanie M. Antigua — Freelance Digital Marketing Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F4EF;
+    --ink: #1A1814;
+    --ink-soft: #4A4640;
+    --ink-muted: #8A857E;
+    --teal: #1E6B6B;
+    --teal-light: #E8F2F2;
+    --teal-mid: #C2DADA;
+    --gold: #B5883A;
+    --white: #FFFFFF;
+    --border: #E2DDD8;
+    --border-strong: #C8C2BA;
+    --radius: 4px;
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--teal);
+    letter-spacing: 0.04em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* LAYOUT */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-child { border-bottom: none; }
+
+  .sec-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sec-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--teal-mid);
+    max-width: 60px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-available {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--teal);
+    background: var(--teal-light);
+    border: 1px solid var(--teal-mid);
+    border-radius: 20px;
+    padding: 4px 13px;
+    margin-bottom: 1.75rem;
+  }
+  .pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:.5;transform:scale(1.3)}
+  }
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.08;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--teal);
+  }
+  .hero-role {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+  }
+  .hero-summary {
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    max-width: 580px;
+    margin-bottom: 2rem;
+  }
+  .hero-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .contact-item {
+    font-size: 13px;
+    color: var(--ink-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+  }
+  .contact-item:hover { color: var(--teal); }
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .btn:hover { background: var(--white); border-color: var(--ink); }
+  .btn-primary {
+    background: var(--teal);
+    color: var(--white);
+    border-color: var(--teal);
+  }
+  .btn-primary:hover { background: #185858; border-color: #185858; color: var(--white); }
+
+  /* STATS */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .stat {
+    background: var(--white);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 11.5px;
+    color: var(--ink-muted);
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+
+  /* SKILLS */
+  .skills-group { margin-bottom: 1.5rem; }
+  .skills-group:last-child { margin-bottom: 0; }
+  .skills-group-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pill {
+    font-size: 13px;
+    padding: 5px 13px;
+    border-radius: 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .pill.core {
+    background: var(--teal-light);
+    border-color: var(--teal-mid);
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  /* EXPERIENCE */
+  .job { display: flex; gap: 2rem; margin-bottom: 2.5rem; }
+  .job:last-child { margin-bottom: 0; }
+  .job-date-col {
+    min-width: 90px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    padding-top: 3px;
+    text-align: right;
+    line-height: 1.5;
+  }
+  .job-content { flex: 1; }
+  .job-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .job-company {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .job-bullets { list-style: none; padding: 0; }
+  .job-bullets li {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    padding: 3px 0 3px 18px;
+    position: relative;
+  }
+  .job-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 11px;
+    top: 6px;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 2.5rem;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    position: relative;
+    transition: box-shadow 0.15s;
+  }
+  .service-card:hover { box-shadow: 0 4px 16px rgba(30,107,107,0.08); }
+  .service-card.featured { border-color: var(--teal-mid); }
+  .service-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .service-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .service-rate {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .service-list { list-style: none; }
+  .service-list li {
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding: 3px 0 3px 16px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .service-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 10px;
+    font-weight: 700;
+    top: 5px;
+  }
+  .featured-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 10px;
+  }
+
+  /* PACKAGES */
+  .pkg-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .pkg-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    position: relative;
+    background: var(--white);
+  }
+  .pkg-card.popular {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 1px var(--teal);
+  }
+  .popular-tag {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--teal);
+    color: var(--white);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .pkg-name {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .pkg-price {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .pkg-period {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+    font-family: var(--font-mono);
+  }
+  .pkg-desc {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pkg-list { list-style: none; }
+  .pkg-list li {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    padding: 3px 0 3px 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .pkg-list li::before {
+    content: '·';
+    position: absolute;
+    left: 3px;
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 14px;
+    top: 1px;
+  }
+
+  .rates-note {
+    margin-top: 1.5rem;
+    padding: 14px 18px;
+    background: var(--teal-light);
+    border: 1px solid var(--teal-mid);
+    border-radius: var(--radius);
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  /* EDUCATION */
+  .edu-block { display: flex; gap: 2rem; align-items: flex-start; }
+  .edu-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--teal-light);
+    border: 1px solid var(--teal-mid);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .edu-degree {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .edu-school {
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 2px;
+    font-weight: 500;
+  }
+  .edu-sub {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* CONTACT FOOTER */
+  .contact-section {
+    padding: 4rem 0;
+    background: var(--ink);
+    border-bottom: none;
+  }
+  .contact-section .sec-eyebrow { color: var(--teal-mid); }
+  .contact-section .sec-eyebrow::after { background: var(--teal); opacity: 0.4; }
+  .contact-heading {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 42px);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    max-width: 480px;
+  }
+  .contact-heading em { color: var(--teal-mid); font-style: italic; }
+  .contact-sub {
+    font-size: 14.5px;
+    color: #8A9A9A;
+    margin-bottom: 2rem;
+    max-width: 420px;
+    line-height: 1.7;
+  }
+  .contact-details {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #2E2E2A;
+  }
+  .contact-detail {
+    font-size: 13px;
+    color: #8A9A9A;
+  }
+  .contact-detail strong {
+    display: block;
+    color: var(--white);
+    font-size: 12px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    opacity: 0.5;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: 1fr; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .job { flex-direction: column; gap: 4px; }
+    .job-date-col { text-align: left; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    .container { padding: 0 1.25rem; }
+    .edu-block { flex-direction: column; gap: 1rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">mel.antigua</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="container">
+    <div class="hero-available">
+      <span class="pulse"></span>
+      Available for remote work
+    </div>
+    <h1 class="hero-name">Melanie M.<br><em>Antigua</em></h1>
+    <p class="hero-role">Freelance Digital Marketing Specialist · Ads · Funnels · Automation</p>
+    <p class="hero-summary">I help businesses generate leads, build smart marketing systems, and convert traffic into paying customers — through Facebook Ads, funnel building, email automation, and hands-on digital support. Remote. Reliable. Results-driven.</p>
+    <div class="hero-contact">
+      <a href="mailto:melanie.antigua16@gmail.com" class="contact-item">
+        <svg class="contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        melanie.antigua16@gmail.com
+      </a>
+      <span class="contact-item">
+        <svg class="contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        0915-643-0812
+      </span>
+      <span class="contact-item">
+        <svg class="contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Calauan, Laguna, Philippines
+      </span>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:melanie.antigua16@gmail.com" class="btn btn-primary">Hire me →</a>
+      <a href="#services" class="btn">See my services</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section style="padding: 2.5rem 0; background: var(--white);">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Years experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Industries served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Tools mastered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Remote-ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <div class="container">
+    <div class="sec-eyebrow">Skills</div>
+    <div class="skills-group">
+      <div class="skills-group-label">Core specialties</div>
+      <div class="pills">
+        <span class="pill core">Facebook Ads Management</span>
+        <span class="pill core">Funnel Building</span>
+        <span class="pill core">Email Automation</span>
+        <span class="pill core">Lead Generation</span>
+        <span class="pill core">Copywriting & Ad Creative</span>
+      </div>
+    </div>
+    <div class="skills-group" style="margin-top:1.25rem">
+      <div class="skills-group-label">Also skilled in</div>
+      <div class="pills">
+        <span class="pill">Social Media Management</span>
+        <span class="pill">Chatbot Automation</span>
+        <span class="pill">CRM & Lead Management</span>
+        <span class="pill">Customer Service</span>
+        <span class="pill">Sales Support</span>
+        <span class="pill">Quality Assurance</span>
+        <span class="pill">Admin & Project Management</span>
+      </div>
+    </div>
+    <div class="skills-group" style="margin-top:1.25rem">
+      <div class="skills-group-label">Tools & platforms</div>
+      <div class="pills">
+        <span class="pill">Meta Ads Manager</span>
+        <span class="pill">Systeme.io</span>
+        <span class="pill">Canva</span>
+        <span class="pill">ClickUp</span>
+        <span class="pill">Asana</span>
+        <span class="pill">Google Workspace</span>
+        <span class="pill">Microsoft Office</span>
+        <span class="pill">AI Productivity Tools</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES & RATES -->
+<section id="services" style="background: var(--white);">
+  <div class="container">
+    <div class="sec-eyebrow">Services & Rates</div>
+
+    <div class="services-grid">
+      <div class="service-card featured">
+        <span class="featured-badge">Most in-demand</span>
+        <span class="service-icon">📣</span>
+        <div class="service-name">Facebook Ads Management</div>
+        <div class="service-rate">$10–$15 / hour</div>
+        <ul class="service-list">
+          <li>Campaign setup, targeting & ad creative</li>
+          <li>A/B testing & performance monitoring</li>
+          <li>Weekly reporting & optimization</li>
+          <li>Retargeting & lookalike audience setup</li>
+        </ul>
+      </div>
+      <div class="service-card featured">
+        <span class="featured-badge">High value</span>
+        <span class="service-icon">⚙️</span>
+        <div class="service-name">Funnel Building & Automation</div>
+        <div class="service-rate">$10–$15 / hour · or fixed per project</div>
+        <ul class="service-list">
+          <li>Landing page & optin page setup</li>
+          <li>Email sequence automation (Systeme.io)</li>
+          <li>Chatbot workflow setup</li>
+          <li>Lead nurturing system build-out</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📱</span>
+        <div class="service-name">Social Media Management</div>
+        <div class="service-rate">$8–$10 / hour</div>
+        <ul class="service-list">
+          <li>Content calendar planning & scheduling</li>
+          <li>Graphic creation using Canva</li>
+          <li>Community management & engagement</li>
+          <li>Performance tracking & monthly report</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🗂️</span>
+        <div class="service-name">Virtual Assistant / Admin Support</div>
+        <div class="service-rate">$8–$10 / hour</div>
+        <ul class="service-list">
+          <li>Email & calendar management</li>
+          <li>Data entry, CRM updates & documentation</li>
+          <li>Customer follow-up & inbox management</li>
+          <li>Research, reporting & task coordination</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pkg-eyebrow">Monthly Retainer Packages</div>
+    <div class="packages-grid">
+      <div class="pkg-card">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-price">$300</div>
+        <div class="pkg-period">/ month · ~10 hrs/week</div>
+        <div class="pkg-desc">Best for small businesses needing consistent marketing support.</div>
+        <ul class="pkg-list">
+          <li>Social media management (3x/week posts)</li>
+          <li>Basic ad campaign management</li>
+          <li>Email & inbox support</li>
+          <li>Monthly performance summary</li>
+        </ul>
+      </div>
+      <div class="pkg-card popular">
+        <div class="popular-tag">⭐ Most Popular</div>
+        <div class="pkg-name">Growth</div>
+        <div class="pkg-price">$550</div>
+        <div class="pkg-period">/ month · ~20 hrs/week</div>
+        <div class="pkg-desc">Ideal for businesses scaling their leads and digital presence.</div>
+        <ul class="pkg-list">
+          <li>Full social media management</li>
+          <li>Facebook Ads setup & optimization</li>
+          <li>Email automation support</li>
+          <li>Lead generation & CRM updates</li>
+          <li>Bi-weekly check-in calls</li>
+        </ul>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-name">Full Support</div>
+        <div class="pkg-price">$900</div>
+        <div class="pkg-period">/ month · ~40 hrs/week</div>
+        <div class="pkg-desc">Full-time dedicated support across marketing and operations.</div>
+        <ul class="pkg-list">
+          <li>Everything in Growth, plus:</li>
+          <li>Funnel & landing page setup</li>
+          <li>Chatbot automation</li>
+          <li>Admin & project coordination</li>
+          <li>Priority response & weekly reports</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rates-note">
+      💡 <strong>Flexible engagement:</strong> Rates are negotiable based on scope and project duration. One-time project quotes available on request. Open to trial projects — see the quality of my work before committing long-term.
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="sec-eyebrow">Experience</div>
+
+    <div class="job">
+      <div class="job-date-col">Oct 2025<br>Present</div>
+      <div class="job-content">
+        <div class="job-title">Freelance Affiliate Marketer & Digital Marketing Specialist</div>
+        <div class="job-company">Clicknamics</div>
+        <ul class="job-bullets">
+          <li>Managed and optimized Facebook Ads campaigns for affiliate marketing and lead generation</li>
+          <li>Built sales funnels and landing pages using Systeme.io with full email automation sequences</li>
+          <li>Created chatbot workflows and ad copies that improved engagement and conversion rates</li>
+          <li>Handled end-to-end digital marketing setup — from optin pages to follow-up sequences</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-date-col">Jun 2023<br>Present</div>
+      <div class="job-content">
+        <div class="job-title">Social Media Manager & Marketing Support</div>
+        <div class="job-company">Zenfi Travel and Tours</div>
+        <ul class="job-bullets">
+          <li>Ran Facebook Ads campaigns for travel packages, growing bookings and inquiry volume</li>
+          <li>Managed all customer communications via Facebook, email, and messaging platforms</li>
+          <li>Created ad copies, promotional creatives, and lead follow-up workflows</li>
+          <li>Handled admin operations: calendar management, client coordination, booking logistics</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-date-col">Dec 2022<br>May 2024</div>
+      <div class="job-content">
+        <div class="job-title">Business Consultant – Real Estate</div>
+        <div class="job-company">Anaya Land Corporation</div>
+        <ul class="job-bullets">
+          <li>Conducted Zoom-based sales presentations and managed full sales cycle from inquiry to close</li>
+          <li>Built and maintained client relationships with consistent after-sales coordination</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-date-col">Nov 2021<br>Jan 2022</div>
+      <div class="job-content">
+        <div class="job-title">Quality Analyst</div>
+        <div class="job-company">EMAPTA Philippines</div>
+        <ul class="job-bullets">
+          <li>Evaluated customer interactions and developed QA processes to improve service quality</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-date-col">Feb 2019<br>May 2021</div>
+      <div class="job-content">
+        <div class="job-title">Health Advisor</div>
+        <div class="job-company">Everise Philippines</div>
+        <ul class="job-bullets">
+          <li>Handled prescription drug plan inquiries; coordinated with pharmacies and insurers</li>
+          <li>Delivered excellent customer service while maintaining strict data confidentiality standards</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-date-col">Nov 2015<br>Sep 2018</div>
+      <div class="job-content">
+        <div class="job-title">Quality Evaluator & Customer Service Representative</div>
+        <div class="job-company">Convergys / Concentrix</div>
+        <ul class="job-bullets">
+          <li>Evaluated calls, emails, and chats for quality compliance; coached team members on performance</li>
+          <li>Consistently exceeded customer service KPIs across voice and non-voice channels</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-date-col">Jan 2011<br>Dec 2014</div>
+      <div class="job-content">
+        <div class="job-title">Disputes Specialist</div>
+        <div class="job-company">IBM Global Process Services / Concentrix</div>
+        <ul class="job-bullets">
+          <li>Processed debit card disputes and fraud cases; escalated complex issues with full documentation</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="sec-eyebrow">Education</div>
+    <div class="edu-block">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">Bachelor of Science in Business Administration</div>
+        <div class="edu-school">Rizal Technological University</div>
+        <div class="edu-sub">Major in Management · Mandaluyong City · Graduated April 2006</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="container">
+    <div class="sec-eyebrow">Let's work together</div>
+    <h2 class="contact-heading">Ready to grow your <em>business</em> with the right support?</h2>
+    <p class="contact-sub">I'm available for remote freelance work — digital marketing, virtual assistance, ads management, and automation setup. Open to project-based or ongoing contracts.</p>
+    <div class="hero-cta">
+      <a href="mailto:melanie.antigua16@gmail.com" class="btn btn-primary">Send me an email →</a>
+    </div>
+    <div class="contact-details">
+      <div class="contact-detail">
+        <strong>Email</strong>
+        melanie.antigua16@gmail.com
+      </div>
+      <div class="contact-detail">
+        <strong>Phone / WhatsApp</strong>
+        0915-643-0812
+      </div>
+      <div class="contact-detail">
+        <strong>Location</strong>
+        Calauan, Laguna, Philippines
+      </div>
+      <div class="contact-detail">
+        <strong>Availability</strong>
+        Remote · Full-time or part-time
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
